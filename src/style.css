@@ -1,0 +1,50 @@
+html, body { margin: 0; height: 100%; overflow: hidden; background: #000; font: 13px/1.4 system-ui, sans-serif; }
+#globe { position: absolute; inset: 0; }
+#panel, #notes, #error, #views {
+  position: absolute; z-index: 10;
+}
+#panel, #notes, #error, #views, .card {
+  color: #fff;
+  background: rgba(20, 24, 30, 0.82); border-radius: 6px; padding: 8px 12px;
+}
+#panel { top: 10px; left: 10px; display: flex; gap: 12px; align-items: center; }
+.btn { background: #2f81f7; padding: 4px 10px; border-radius: 4px; cursor: pointer; }
+.btn:hover { background: #4493f8; }
+#filename { opacity: 0.8; max-width: 40ch; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#side {
+  position: absolute; z-index: 10; top: 10px; right: 10px; bottom: 140px; width: 280px;
+  display: flex; flex-direction: column; gap: 10px; pointer-events: none;
+}
+#side > .card { pointer-events: auto; flex: none; box-sizing: border-box; }
+#readout { font-variant-numeric: tabular-nums; }
+#readout div { display: flex; justify-content: space-between; gap: 16px; }
+#readout .k { opacity: 0.7; }
+#maneuvers { flex: 1 1 auto !important; min-height: 0; overflow-y: auto; }
+#heart { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 12px; }
+#heart-icon { width: 64px; height: 64px; fill: #ff3b4e; filter: drop-shadow(0 0 8px rgba(255, 59, 78, 0.55)); transform-origin: 50% 55%; }
+#heart.idle #heart-icon { fill: #6b7280; filter: none; }
+#heart-bpm { font-variant-numeric: tabular-nums; }
+#heart-value { font-size: 34px; font-weight: 700; line-height: 1; }
+#heart-bpm small { opacity: 0.7; font-size: 13px; letter-spacing: 0.08em; }
+#maneuvers small { display: block; opacity: 0.65; margin-bottom: 4px; }
+#maneuvers ul { list-style: none; margin: 0; padding: 0; }
+#maneuvers li { display: flex; justify-content: space-between; gap: 8px; padding: 3px 4px; border-radius: 4px; cursor: pointer; }
+#maneuvers li:hover { background: rgba(255, 255, 255, 0.15); }
+#maneuvers li .when { opacity: 0.65; font-variant-numeric: tabular-nums; white-space: nowrap; }
+#maneuvers li .what { display: flex; flex-direction: column; }
+#maneuvers li .what small { margin: 0; }
+#views { top: 54px; left: 10px; display: flex; gap: 4px; padding: 4px; }
+#views button {
+  background: transparent; color: #fff; border: 0; border-radius: 4px; padding: 4px 12px; cursor: pointer; font: inherit;
+}
+#views button:hover { background: rgba(255, 255, 255, 0.15); }
+#views button.active { background: #2f81f7; }
+#notes { top: 100px; left: 10px; max-width: 60ch; }
+#notes:empty { display: none; }
+#notes p { margin: 2px 0; }
+#error { top: 100px; left: 50%; transform: translateX(-50%); background: rgba(160, 30, 30, 0.92); }
+#dropmask {
+  position: absolute; inset: 0; z-index: 20; display: flex; align-items: center; justify-content: center;
+  background: rgba(47, 129, 247, 0.35); color: #fff; font-size: 28px; border: 4px dashed #fff; box-sizing: border-box;
+}
+[hidden] { display: none !important; }

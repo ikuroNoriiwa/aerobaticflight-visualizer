@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlightVis</title>
+  </head>
+  <body>
+    <div id="globe"></div>
+
+    <div id="panel">
+      <strong>FlightVis</strong>
+      <label class="btn">
+        Open file
+        <input id="file" type="file" accept=".fit,.gpx,.kml" hidden />
+      </label>
+      <span id="filename">or drop a .fit / .gpx / .kml file anywhere</span>
+    </div>
+
+    <aside id="side">
+      <div id="readout" class="card" hidden>
+        <div><span class="k">Time</span><span id="r-time"></span></div>
+        <div><span class="k">Altitude</span><span id="r-alt"></span></div>
+        <div><span class="k">Speed</span><span id="r-speed"></span></div>
+        <div><span class="k">Bank (est.)</span><span id="r-bank"></span></div>
+      </div>
+
+      <div id="heart" class="card" hidden>
+        <svg id="heart-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+        <div id="heart-bpm"><span id="heart-value">--</span> <small>BPM</small></div>
+      </div>
+
+      <div id="maneuvers" class="card" hidden>
+        <strong>Detected maneuvers</strong>
+        <small>Inferred from GPS track, not recorded data</small>
+        <ul id="maneuver-list"></ul>
+      </div>
+    </aside>
+
+    <div id="views" hidden role="group" aria-label="Camera view">
+      <button data-view="free" class="active">Free</button>
+      <button data-view="chase">Follow</button>
+      <button data-view="cockpit">Cockpit</button>
+    </div>
+
+    <div id="notes"></div>
+    <div id="error" role="alert" hidden></div>
+    <div id="dropmask" hidden>Drop flight file</div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
